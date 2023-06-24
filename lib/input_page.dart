@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const activeCardColor = Color(0xFF1d1e33);
 const buttonColor = Color(0xFFEB1555);
@@ -22,24 +23,35 @@ class _InputPageState extends State<InputPage> {
               children: [
                 ReusableCard(
                   color: activeCardColor,
+                  cardChild: ReusableCardChild(
+                    cardText: 'MALE',
+                    iconData: FontAwesomeIcons.mars,
+                  ),
                 ),
                 ReusableCard(
                   color: activeCardColor,
+                  cardChild: ReusableCardChild(
+                    cardText: 'FEMALE',
+                    iconData: FontAwesomeIcons.venus,
+                  ),
                 ),
               ],
             ),
           ),
-          const ReusableCard(
+          ReusableCard(
             color: activeCardColor,
+            cardChild: Container(),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
                 ReusableCard(
                   color: activeCardColor,
+                  cardChild: Container(),
                 ),
                 ReusableCard(
                   color: activeCardColor,
+                  cardChild: Container(),
                 )
               ],
             ),
@@ -55,12 +67,48 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+class ReusableCardChild extends StatelessWidget {
+  final String cardText;
+  final IconData iconData;
+
+  const ReusableCardChild({
+    super.key,
+    required this.cardText,
+    required this.iconData,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          iconData,
+          size: 80,
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        Text(
+          cardText,
+          style: const TextStyle(
+            fontSize: 18,
+            color: Color(0xFF8D8E98),
+          ),
+        )
+      ],
+    );
+  }
+}
+
 class ReusableCard extends StatelessWidget {
   final Color color;
+  final Widget cardChild;
 
   const ReusableCard({
     super.key,
     required this.color,
+    required this.cardChild,
   });
 
   @override
@@ -72,6 +120,7 @@ class ReusableCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: color,
         ),
+        child: cardChild,
       ),
     );
   }
