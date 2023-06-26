@@ -15,12 +15,14 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender gender = Gender.notSelected;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('BMI CALCULATOR'), centerTitle: true),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -63,7 +65,35 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               color: kActiveCardColor,
-              cardChild: Container(),
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "HEIGHT",
+                    style: kLabelStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(height.toString(), style: kNumberTextStyle),
+                      const Text('cm'),
+                    ],
+                  ),
+                  Slider(
+                      value: height.toDouble(),
+                      min: 120,
+                      max: 220,
+                      activeColor: const Color(0xFFEB1555),
+                      inactiveColor: const Color(0xFF8D8E98),
+                      onChanged: (double value) {
+                        setState(() {
+                          height = value.toInt();
+                        });
+                      }),
+                ],
+              ),
               onPressed: () {},
             ),
           ),
