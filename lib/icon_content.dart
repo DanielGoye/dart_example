@@ -28,7 +28,7 @@ class IconContent extends StatelessWidget {
             fontSize: 18,
             color: Color(0xFF8D8E98),
           ),
-        )
+        ),
       ],
     );
   }
