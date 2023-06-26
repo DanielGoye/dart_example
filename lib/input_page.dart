@@ -28,8 +28,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     color: gender == Gender.male
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: const IconContent(
                       cardText: 'MALE',
                       iconData: FontAwesomeIcons.mars,
@@ -44,8 +44,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     color: gender == Gender.female
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: const IconContent(
                       cardText: 'FEMALE',
                       iconData: FontAwesomeIcons.venus,
@@ -62,7 +62,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              color: activeCardColor,
+              color: kActiveCardColor,
               cardChild: Container(),
               onPressed: () {},
             ),
@@ -72,14 +72,14 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     cardChild: Container(),
                     onPressed: () {},
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     cardChild: Container(),
                     onPressed: () {},
                   ),
@@ -88,7 +88,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: buttonColor,
+            color: kButtonColor,
             width: double.infinity,
             height: 80,
           ),
