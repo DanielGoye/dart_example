@@ -87,7 +87,7 @@ class _InputPageState extends State<InputPage> {
                     color: activeCardColor,
                     cardChild: Container(),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -95,7 +95,7 @@ class _InputPageState extends State<InputPage> {
             color: buttonColor,
             width: double.infinity,
             height: 80,
-          )
+          ),
         ],
       ),
     );
