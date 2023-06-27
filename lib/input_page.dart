@@ -29,36 +29,30 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: gender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    cardChild: const IconContent(
-                      cardText: 'MALE',
-                      iconData: FontAwesomeIcons.mars,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        gender = Gender.male;
-                      });
-                    },
-                  ),
+                      color: gender == Gender.male
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
+                      cardChild: const IconContent(
+                          cardText: 'MALE', iconData: FontAwesomeIcons.mars),
+                      onPressed: () {
+                        setState(() {
+                          gender = Gender.male;
+                        });
+                      }),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: gender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    cardChild: const IconContent(
-                      cardText: 'FEMALE',
-                      iconData: FontAwesomeIcons.venus,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        gender = Gender.female;
-                      });
-                    },
-                  ),
-                ),
+                      color: gender == Gender.female
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
+                      cardChild: const IconContent(
+                          cardText: 'FEMALE', iconData: FontAwesomeIcons.venus),
+                      onPressed: () {
+                        setState(() {
+                          gender = Gender.female;
+                        });
+                      }),
+                )
               ],
             ),
           ),
@@ -68,30 +62,36 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "HEIGHT",
-                    style: kLabelStyle,
-                  ),
+                  const Text("HEIGHT", style: kLabelStyle),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Text(height.toString(), style: kNumberTextStyle),
-                      const Text('cm'),
-                    ],
-                  ),
-                  Slider(
-                      value: height.toDouble(),
-                      min: 120,
-                      max: 220,
-                      activeColor: const Color(0xFFEB1555),
-                      inactiveColor: const Color(0xFF8D8E98),
-                      onChanged: (double value) {
-                        setState(() {
-                          height = value.toInt();
-                        });
-                      }),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(height.toString(), style: kNumberTextStyle),
+                        const Text('cm')
+                      ]),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 15),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 30),
+                      thumbColor: const Color(0xFFEB1555),
+                      activeTrackColor: Colors.white,
+                      overlayColor: const Color(0x29EB1555),
+                      inactiveTrackColor: const Color(0xFF8D8E98),
+                    ),
+                    child: Slider(
+                        value: height.toDouble(),
+                        min: 120,
+                        max: 220,
+                        onChanged: (double value) {
+                          setState(() {
+                            height = value.toInt();
+                          });
+                        }),
+                  )
                 ],
               ),
               onPressed: () {},
@@ -102,18 +102,16 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: kActiveCardColor,
-                    cardChild: Container(),
-                    onPressed: () {},
-                  ),
+                      color: kActiveCardColor,
+                      cardChild: Container(),
+                      onPressed: () {}),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: kActiveCardColor,
-                    cardChild: Container(),
-                    onPressed: () {},
-                  ),
-                ),
+                      color: kActiveCardColor,
+                      cardChild: Container(),
+                      onPressed: () {}),
+                )
               ],
             ),
           ),
@@ -121,7 +119,7 @@ class _InputPageState extends State<InputPage> {
             color: kButtonColor,
             width: double.infinity,
             height: 80,
-          ),
+          )
         ],
       ),
     );
