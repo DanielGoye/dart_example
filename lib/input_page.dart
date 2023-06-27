@@ -16,6 +16,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender gender = Gender.notSelected;
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +104,51 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                       color: kActiveCardColor,
-                      cardChild: Container(),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "WEIGHT",
+                            style: kLabelStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.alphabetic,
+                            children: [
+                              Text(
+                                weight.toString(),
+                                style: kNumberTextStyle,
+                              ),
+                              const Text("kg"),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                                child: const Icon(Icons.remove,
+                                    color: Colors.white),
+                              ),
+                              const SizedBox(width: 10),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                child:
+                                    const Icon(Icons.add, color: Colors.white),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                       onPressed: () {}),
                 ),
                 Expanded(
@@ -122,6 +167,25 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final Widget child;
+  const RoundIconButton(
+      {super.key, required this.onPressed, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF4c4f5e),
+      constraints: const BoxConstraints.tightFor(width: 56, height: 56),
+      elevation: 6,
+      child: child,
     );
   }
 }
