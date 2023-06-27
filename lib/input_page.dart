@@ -17,6 +17,7 @@ class _InputPageState extends State<InputPage> {
   Gender gender = Gender.notSelected;
   int height = 180;
   int weight = 60;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -104,57 +105,41 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                       color: kActiveCardColor,
-                      cardChild: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "WEIGHT",
-                            style: kLabelStyle,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(
-                                weight.toString(),
-                                style: kNumberTextStyle,
-                              ),
-                              const Text("kg"),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    weight--;
-                                  });
-                                },
-                                child: const Icon(Icons.remove,
-                                    color: Colors.white),
-                              ),
-                              const SizedBox(width: 10),
-                              RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    weight++;
-                                  });
-                                },
-                                child:
-                                    const Icon(Icons.add, color: Colors.white),
-                              ),
-                            ],
-                          )
-                        ],
+                      cardChild: AgeWeightContent(
+                        label: "WEIGHT",
+                        value: weight,
+                        valueLabel: 'kg',
+                        onSubtract: () {
+                          setState(() {
+                            weight--;
+                          });
+                        },
+                        onAdd: () {
+                          setState(() {
+                            weight++;
+                          });
+                        },
                       ),
                       onPressed: () {}),
                 ),
                 Expanded(
                   child: ReusableCard(
                       color: kActiveCardColor,
-                      cardChild: Container(),
+                      cardChild: AgeWeightContent(
+                        label: "AGE",
+                        value: age,
+                        valueLabel: "yrs",
+                        onSubtract: () {
+                          setState(() {
+                            age--;
+                          });
+                        },
+                        onAdd: () {
+                          setState(() {
+                            age++;
+                          });
+                        },
+                      ),
                       onPressed: () {}),
                 )
               ],
@@ -186,6 +171,61 @@ class RoundIconButton extends StatelessWidget {
       constraints: const BoxConstraints.tightFor(width: 56, height: 56),
       elevation: 6,
       child: child,
+    );
+  }
+}
+
+class AgeWeightContent extends StatelessWidget {
+  final String label;
+  final int value;
+  final String valueLabel;
+  final VoidCallback onSubtract;
+  final VoidCallback onAdd;
+
+  const AgeWeightContent(
+      {super.key,
+      required this.label,
+      required this.value,
+      required this.onSubtract,
+      required this.onAdd,
+      required this.valueLabel});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          label,
+          style: kLabelStyle,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Text(
+              value.toString(),
+              style: kNumberTextStyle,
+            ),
+            Text(valueLabel),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RoundIconButton(
+              onPressed: onSubtract,
+              child: const Icon(Icons.remove, color: Colors.white),
+            ),
+            const SizedBox(width: 10),
+            RoundIconButton(
+              onPressed: onAdd,
+              child: const Icon(Icons.add, color: Colors.white),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
