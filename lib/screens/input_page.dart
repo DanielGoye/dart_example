@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi_calculator/reusable_card.dart';
-import 'package:bmi_calculator/icon_content.dart';
-import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/age_weight_content.dart';
+import 'package:bmi_calculator/widgets/reusable_card.dart';
+import 'package:bmi_calculator/widgets/icon_content.dart';
+import 'package:bmi_calculator/constants/constants.dart';
+import 'package:bmi_calculator/widgets/age_weight_content.dart';
 
 enum Gender { male, female, notSelected }
 
