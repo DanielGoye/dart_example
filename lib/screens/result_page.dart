@@ -13,9 +13,13 @@ class ResultPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Your Result",
-              style: kNumberTextStyle.copyWith(fontSize: 40),
+            Container(
+              alignment: Alignment.bottomLeft,
+              padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+              child: Text(
+                "Your Result",
+                style: kNumberTextStyle.copyWith(fontSize: 40),
+              ),
             ),
             Expanded(
               child: ReusableCard(
