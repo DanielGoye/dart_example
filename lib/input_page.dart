@@ -146,10 +146,21 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kButtonColor,
-            width: double.infinity,
-            height: 80,
+          GestureDetector(
+            child: Container(
+              color: kButtonColor,
+              width: double.infinity,
+              height: 80,
+              child: const Center(
+                child: Text(
+                  "CALCULATE",
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 3),
+                ),
+              ),
+            ),
           )
         ],
       ),
