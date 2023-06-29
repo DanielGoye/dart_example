@@ -4,6 +4,7 @@ import 'package:bmi_calculator/widgets/reusable_card.dart';
 import 'package:bmi_calculator/widgets/icon_content.dart';
 import 'package:bmi_calculator/constants/constants.dart';
 import 'package:bmi_calculator/widgets/age_weight_content.dart';
+import 'package:bmi_calculator/widgets/main_flat_button.dart';
 
 enum Gender { male, female, notSelected }
 
@@ -146,22 +147,12 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          MainFlatButton(
+            onPressed: () {
               Navigator.pushNamed(context, "/results");
             },
-            child: Container(
-              color: kButtonColor,
-              width: double.infinity,
-              height: 80,
-              child: const Center(
-                child: Text(
-                  "CALCULATE",
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-            ),
-          )
+            text: "CALCULATE",
+          ),
         ],
       ),
     );
