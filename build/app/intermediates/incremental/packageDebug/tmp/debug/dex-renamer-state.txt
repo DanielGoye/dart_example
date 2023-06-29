@@ -1,4 +1,4 @@
-#Thu Jun 29 23:03:35 EAT 2023
+#Thu Jun 29 23:22:35 EAT 2023
 base.0=C\:\\Users\\Daniel\\AndroidStudioProjects\\bmi_calculator\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

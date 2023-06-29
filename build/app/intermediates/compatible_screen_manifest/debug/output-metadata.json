@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.bmi_calculator",
+  "applicationId": "com.danielgoye.bmi_calculator",
   "variantName": "debug",
   "elements": []
 }
