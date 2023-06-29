@@ -157,10 +157,7 @@ class _InputPageState extends State<InputPage> {
               child: const Center(
                 child: Text(
                   "CALCULATE",
-                  style: TextStyle(
-                      fontSize: 27,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 3),
+                  style: kLargeButtonTextStyle,
                 ),
               ),
             ),

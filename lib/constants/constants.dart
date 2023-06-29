@@ -9,3 +9,6 @@ const kLabelStyle = TextStyle(
   fontSize: 18,
   color: Color(0xFF8D8E98),
 );
+
+const kLargeButtonTextStyle =
+    TextStyle(fontSize: 27, fontWeight: FontWeight.w900, letterSpacing: 3);
