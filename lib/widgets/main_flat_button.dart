@@ -18,6 +18,7 @@ class MainFlatButton extends StatelessWidget {
         color: kButtonColor,
         width: double.infinity,
         height: 80,
+        padding: const EdgeInsets.only(bottom: 15),
         child: Center(
           child: Text(
             text,
