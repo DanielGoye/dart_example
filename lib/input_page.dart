@@ -147,6 +147,9 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, "/results");
+            },
             child: Container(
               color: kButtonColor,
               width: double.infinity,

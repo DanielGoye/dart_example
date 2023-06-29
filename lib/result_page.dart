@@ -7,7 +7,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Results"),
+        title: const Text("RESULTS"),
         centerTitle: true,
       ),
       body: const Center(
